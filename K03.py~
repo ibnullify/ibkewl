@@ -7,3 +7,4 @@ HW<n> -- <Title/Topic/Summary>
 import csv
 With open(‘occupations.csv’, ‘r’) as csvfile:
 print csvfile
+spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
