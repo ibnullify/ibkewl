@@ -3,6 +3,8 @@ SoftDev1 pd7
 HW03 -- StI/O: Divine your Destiny!
 2017-09-15
 """
+
+import random
 #'r' -- read mode: file is only being read.
 #file object is created
 file = open("occupations.csv", 'r')
@@ -31,6 +33,22 @@ for str in file.readlines()[1:len(file.readlines())-1]:
     else:
         d[line[0]] = float(line[1])
 print d
+
+def rand_job():
+	count = 0
+	#count represents the running total of the for loop through the dictionary
+	rand = random.randint(1,998)
+	#rand represents a random number between 1 and 998, which coincides with the values of the percentages of the jobs
+	#print rand
+	for key in d:
+		count = count + (d[key]*10)
+		#add to count to find out which occupation to stop at
+		#print count
+		if count >= rand:
+			#when your count surpasses the random number, you are in the percentage of that occupation
+			return key
+
+print rand_job()
 
 
 
